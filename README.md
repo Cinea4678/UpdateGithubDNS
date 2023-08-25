@@ -49,7 +49,7 @@ Import-Module PSScheduledJob
 $scriptBlock = {
     $policy = Get-ExecutionPolicy
     Set-ExecutionPolicy RemoteSigned -Force
-    $env:windir\UpdateGithubDNS.ps1
+    & "$env:windir\UpdateGithubDNS.ps1"
     Set-ExecutionPolicy $policy -Force
 }
 $option = New-ScheduledJobOption -RunElevated -RequireNetwork 
