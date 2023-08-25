@@ -44,12 +44,12 @@ Set-ExecutionPolicy $policy
 请注意，你只能使用经典的Windows Powershell来运行这段脚本，因为使用.Net Core实现的新版Powershell不提供PSScheduledJob模块的支持。如果你不理解这句话的含义，那就说明你不需要操心这个问题，直接使用`Win+X`中提供的Powershell或者终端即可。
 
 ```powershell
-Copy-Item .\UpdateGithubDNS.ps1 ~
+Copy-Item .\UpdateGithubDNS.ps1 $env:windir
 Import-Module PSScheduledJob
 $scriptBlock = {
     $policy = Get-ExecutionPolicy
     Set-ExecutionPolicy RemoteSigned -Force
-    ~\UpdateGithubDNS.ps1
+    $env:windir\UpdateGithubDNS.ps1
     Set-ExecutionPolicy $policy -Force
 }
 $option = New-ScheduledJobOption -RunElevated -RequireNetwork 

@@ -11,7 +11,7 @@ $downloadedContent = [System.Text.Encoding]::UTF8.GetString($response.Content)
 $insertContent = @"
 # UpdateGithubDNS Start
 $($downloadedContent)
-# Powershell Script by 
+# Powershell Script by Cinea4678/UpdateGithubDNS
 # UpdateGithubDNS End
 "@
 
